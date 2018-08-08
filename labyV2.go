@@ -290,13 +290,7 @@ func findExit(verifBoard [][]int, board [][]int){
 	tryExit++;
 
 	if(tryExit > 50){
-		verifX = placeX+1;
-		verifY = placeY;
-		for (verifBoard[verifY][verifX] != 1){
-			verifX++;
-		}
-		placeX = verifX+1;
-		tryExit = 0;
+		placeX++;
 	}
 
 
