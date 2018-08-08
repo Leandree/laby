@@ -28,6 +28,8 @@ var (
 	verifX int 
 
 	verifY int
+
+	boolSolution int = 0
 )
 
 //fonction verifiant si un mur du labyrinthe doit etre afficher ou cacher
@@ -413,7 +415,7 @@ func findExit(verifBoard [][]int, board [][]int){
 
 func verifSolution(verifBoard [][]int ){
 
-			for j := 0; j < size; j++ {
+		for j := 0; j < size; j++ {
 			for i := 0; i < size; i++ {
 
 				verifline += strconv.Itoa(verifBoard[j][i]);
@@ -457,6 +459,11 @@ func main() {
 	    board[i] = make([]int, size)
 	}
 
+	boardSolution := make([][]int, size)
+	for i := range boardSolution {
+	    boardSolution[i] = make([]int, size)
+	}
+
 //initialisation du tableau 2 dimensions permettant de savoir si une case a déja était traité lors du tracage du chemin de sortie
 	verifBoard := make([][]int, size)
 	for i := range verifBoard {
@@ -467,6 +474,19 @@ func main() {
 
 	findExit(verifBoard, board);
 
+
+//duplication du chemin dans un autre tableau afin de garder la solution de sortie
+
+		for j := 0; j < size; j++ {
+			for i := 0; i < size; i++ {
+
+				boardSolution[j][i] = board[j][i];
+
+				}
+
+			}
+	
+
 //affichage du chemin déssiné par la fonction find exit
 //	verifSolution(verifBoard);
 
@@ -476,9 +496,21 @@ func main() {
 	shakeLaby(verifBoard , board , size );
 
 
+
 	
 //affichage du labyrinthe 
 	printLaby(board);
+
+	for (boolSolution != 1){
+
+		fmt.Println("Entre 1 si vous voulez la solution  : ")
+		fmt.Scanf("%d", &boolSolution)
+
+	}
+
+	printLaby(boardSolution);
+
+	
 
 
 	
