@@ -473,7 +473,7 @@ func main() {
 //modification de l'ensemble des cases non traité par la fonction findExit afin de "brouillé" le chemin et de rendre difficile sa sortie
 //mettre en commentaire cette fonction permettra d'afficher uniquement le chemin de sortie créer par la fonction findExit
 
-	//shakeLaby(verifBoard , board , size );
+	shakeLaby(verifBoard , board , size );
 
 
 	
